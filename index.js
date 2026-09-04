@@ -1,6 +1,7 @@
 import { detectWsl } from "./lib/wsl-host.js";
 import {
   buildPortAdvice,
+  buildUiPlaybook,
   checkLocalPort,
   formatPortReport,
   hostnameIps,
@@ -43,6 +44,7 @@ export function apply(ctx, config = {}) {
           ips: { type: "array", items: { type: "string" } },
           listen: { type: "object", additionalProperties: true },
           advice: { type: "array", items: { type: "string" } },
+          uiPlaybook: { type: "array", items: { type: "string" } },
           error: { type: "string" },
         },
       },
@@ -51,11 +53,22 @@ export function apply(ctx, config = {}) {
     timeoutMs,
     isConcurrencySafe: () => true,
     async execute(args) {
-      if (!wsl) return { wsl: false, port: defaultPort, error: "not running in WSL", advice: [] };
+      if (!wsl) {
+        return {
+          wsl: false,
+          port: defaultPort,
+          error: "not running in WSL",
+          advice: [],
+          uiPlaybook: [],
+          ips: [],
+          listen: { ok: false, error: "not_wsl", listening: false, port: defaultPort },
+        };
+      }
       const port = Number.isInteger(args?.port) ? args.port : defaultPort;
       const ips = await hostnameIps();
       const listen = await checkLocalPort(port);
-      const report = { wsl: true, port, ips, listen };
+      const uiPlaybook = buildUiPlaybook(port);
+      const report = { wsl: true, port, ips, listen, uiPlaybook, error: "" };
       report.advice = buildPortAdvice(report);
       return report;
     },
