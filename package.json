@@ -1,7 +1,7 @@
 {
   "name": "dsh-wsl-port",
-  "version": "0.1.0",
-  "description": "DeepSeek Harness tool: diagnose WSL port listening and Windows localhost forwarding.",
+  "version": "0.2.0",
+  "description": "WSL port doctor with dsh :3080/:3081 relay advice.",
   "license": "MIT",
   "repository": {
     "type": "git",

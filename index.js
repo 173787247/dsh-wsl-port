@@ -17,7 +17,7 @@ export function apply(ctx, config = {}) {
   ctx.systemPrompt.section({
     name: "tool:port_doctor",
     order: 121,
-    text: "Use port_doctor when a Windows browser cannot reach a server started inside WSL (localhost forwarding / WSL IP / firewall).",
+    text: "Use port_doctor when Windows cannot reach a WSL port. For dsh UI check 3080/3081 and prefer restart-dsh-web.sh relay — never dsh --host 0.0.0.0.",
   });
 
   ctx.tools.register({
