@@ -20,7 +20,7 @@ describe("port_doctor", () => {
     assert.equal(buildUiPlaybook(11434).length, 0);
     const book = buildUiPlaybook(3081);
     assert.ok(book.some((s) => /check-dsh-health/i.test(s)));
-    assert.ok(book.some((s) => /127\.0\.0\.1:3081/i.test(s)));
+    assert.ok(book.some((s) => /127\.0\.0\.1:3081/i.test(s) && /token/i.test(s)));
     assert.ok(book.some((s) => /restart-dsh-web/i.test(s)));
     assert.ok(book.some((s) => /portproxy/i.test(s)));
   });

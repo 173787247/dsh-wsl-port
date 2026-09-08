@@ -1,7 +1,7 @@
 {
   "name": "dsh-wsl-port",
-  "version": "0.2.1",
-  "description": "WSL port doctor with dsh :3080/:3081 uiPlaybook (health → 3081 → restart → expose).",
+  "version": "0.2.2",
+  "description": "WSL port doctor; dsh ≥0.1.2 uiPlaybook uses :3081/?token= (bare :3081 is 401).",
   "license": "MIT",
   "repository": {
     "type": "git",
