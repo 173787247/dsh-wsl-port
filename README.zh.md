@@ -8,6 +8,18 @@ DeepSeek Harness 工具：**`port_doctor`** — 报告 WSL IP、TCP 端口是否
 
 [English → README.md](./README.md)
 
+## 在套件里的位置
+
+诊断 WSL 端口被谁占用。Windows 聊天地址是 :3081/?token=，不是裸 :3080。
+
+```mermaid
+flowchart LR
+  agent["dsh agent"] --> tool["port_doctor"] --> ports["WSL 监听与 :3081 中继"]
+```
+
+整套关系图和版本快照：[dsh-wsl-kit 中文说明](https://github.com/173787247/dsh-wsl-kit/blob/master/README.zh.md)。本插件是 **0.2.2**（full，也在 llm）。不要把那份总表抄进本 README。
+
+
 ---
 ## 兼容性
 

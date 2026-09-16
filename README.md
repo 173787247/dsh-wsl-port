@@ -8,6 +8,18 @@ Part of **[dsh-wsl-kit](https://github.com/173787247/dsh-wsl-kit)**.
 
 [中文说明 → README.zh.md](./README.zh.md)
 
+## Where it sits
+
+Diagnoses which process owns a WSL port. The Windows chat URL is :3081/?token=, not bare :3080.
+
+```mermaid
+flowchart LR
+  agent["dsh agent"] --> tool["port_doctor"] --> ports["WSL listeners and :3081 relay"]
+```
+
+Suite diagram and version snapshot: [dsh-wsl-kit](https://github.com/173787247/dsh-wsl-kit#how-the-pieces-fit). This plugin is **0.2.2** (full; also in llm). Do not copy that matrix into this README.
+
+
 ---
 ## Compatibility
 
